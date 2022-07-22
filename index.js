@@ -33,6 +33,7 @@ async function run() {
       }
     }
 
+    changes = changes.trim();
     core.setOutput("changes", changes);
 
     if (output) {

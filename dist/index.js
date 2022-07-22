@@ -2153,41 +2153,48 @@ const fs = __nccwpck_require__(147);
 const path = __nccwpck_require__(17);
 const readline = __nccwpck_require__(521);
 
-try {
-  const changelog = core.getInput("changelog");
-  const version = core.getInput("version");
-  const output = core.getInput("output");
-  console.log(`Proceed ${changelog} at ${version}`);
+async function run() {
+  try {
+    const changelog = core.getInput("changelog");
+    const version = core.getInput("version");
+    const output = core.getInput("output");
+    console.log(`Proceed ${changelog} at ${version}`);
 
-  const rl = readline.createInterface({
-    input: fs.createReadStream(path.resolve(changelog)),
-  });
+    const rl = readline.createInterface({
+      input: fs.createReadStream(path.resolve(changelog)),
+    });
 
-  let changes = "";
-  let startRecord = false;
-  rl.on("line", (line) => {
-    if (line.startsWith("## [")) {
-      if (line.startsWith(`## [${version}]`)) {
-        startRecord = true;
-      } else if (startRecord) {
-        // Stop because we found next version header.
-        rl.close();
-      }
-    } else {
-      if (startRecord) {
-        changes = changes.concat(line);
+    let changes = "";
+    let startRecord = false;
+    for await (const line of rl) {
+      if (line.startsWith("## [")) {
+        if (line.startsWith(`## [${version}]`)) {
+          startRecord = true;
+        } else if (startRecord) {
+          startRecord = false;
+          // Stop because we found next version header.
+          rl.close();
+          rl.removeAllListeners();
+        }
+      } else {
+        if (startRecord) {
+          changes = changes.concat(line, "\n");
+        }
       }
     }
-  });
 
-  core.setOutput("changes", changes);
+    changes = changes.trim();
+    core.setOutput("changes", changes);
 
-  if (output) {
-    fs.writeFileSync(output, changes, { flag: "a" });
+    if (output) {
+      fs.writeFileSync(output, changes, { flag: "a" });
+    }
+  } catch (error) {
+    core.setFailed(error.message);
   }
-} catch (error) {
-  core.setFailed(error.message);
 }
+
+run();
 
 })();
 

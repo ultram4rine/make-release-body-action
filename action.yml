@@ -18,7 +18,7 @@ outputs:
     description: "Changes of the specified version"
 runs:
   using: "node16"
-  main: "index.js"
+  main: "dist/index.js"
 branding:
   icon: "clock"
   color: "orange"

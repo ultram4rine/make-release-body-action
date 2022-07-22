@@ -1,5 +1,11 @@
 # make-release-body-action
 
+> Replacement of
+>
+> ```sh
+> awk -v ver=$(grep 'version' package.json | awk -F: '{ print $2 }' | tr -d \ \",) '/^#+ \[/ { if (p) { exit }; if ($2 == "["ver"]") { p=1; next } } p && NF' CHANGELOG.md > changes.txt
+> ```
+
 Make release body from [`keep a changelog`](https://keepachangelog.com/en/1.0.0/). Companion for [softprops/action-gh-release](https://github.com/softprops/action-gh-release).
 
 ## Inputs

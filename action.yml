@@ -1,13 +1,24 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+# action.yml
+name: "Make release body"
+author: ultram4rine
+description: "Make body for release from `Keep a Changelog` file format"
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  changelog:
+    description: "Name of the changelog file"
     required: true
-    default: '1000'
+    default: "CHANGELOG.md"
+  version:
+    description: "Version for which you want to extract the changes"
+    required: true
+  output:
+    description: "Name of the output file"
+    required: false
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  changes:
+    description: "Changes of the specified version"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "index.js"
+branding:
+  icon: "clock"
+  color: "orange"

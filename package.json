@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "make-release-body-action",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Make release body from keep a changelog. Companion for softprops/action-gh-release",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,25 +11,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/ultram4rine/make-release-body-action.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "",
+  "author": "ultram4rine",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/ultram4rine/make-release-body-action/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/ultram4rine/make-release-body-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "^1.9.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1",
-    "eslint": "^8.0.0",
-    "jest": "^27.2.5"
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.20.0",
+    "jest": "^28.1.3"
   }
 }

@@ -4,21 +4,21 @@ Make release body from [`keep a changelog`](https://keepachangelog.com/en/1.0.0/
 
 ## Inputs
 
-## `changelog`
+### `changelog`
 
 **Required** The name of the `changelog` file. Default `"CHANGELOG.md"`.
 
-## `version`
+### `version`
 
 **Required** The version for which you want to extract the changes.
 
-## `output`
+### `output`
 
 The name of the output file.
 
 ## Outputs
 
-## `changes`
+### `changes`
 
 Changes of the specified version.
 

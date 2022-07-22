@@ -1,7 +1,7 @@
 {
   "name": "make-release-body-action",
   "version": "1.0.0",
-  "description": "Make release body from keep a changelog. Companion for softprops/action-gh-release",
+  "description": "Make release body from keep a changelog",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint .",

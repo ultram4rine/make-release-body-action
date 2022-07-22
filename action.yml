@@ -1,7 +1,7 @@
 # action.yml
 name: "Make release body"
 author: ultram4rine
-description: "Make body for release from `Keep a Changelog` file format"
+description: "Make release body from keep a changelog"
 inputs:
   changelog:
     description: "Name of the changelog file"

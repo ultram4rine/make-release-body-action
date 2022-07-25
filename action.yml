@@ -1,7 +1,7 @@
 # action.yml
-name: "Make release body"
+name: "Extract changes"
 author: ultram4rine
-description: "Make release body from keep a changelog"
+description: "Extract changes from keep a changelog for some version"
 inputs:
   changelog:
     description: "Name of the changelog file"

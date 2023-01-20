@@ -1,4 +1,10 @@
+tests/changes.txt
+
+# Dependencies
 node_modules/
+
+# Compiled project files
+dist/
 
 # Editors
 .vscode/

@@ -1,4 +1,7 @@
-name: "units-test"
+##
+# Run unit test and the action itself
+##
+name: Unit test
 on:
   pull_request:
   push:
@@ -20,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: npm ci
       - uses: ./
         with:
           changelog: test/changelog

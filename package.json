@@ -1,6 +1,6 @@
 {
   "name": "extract-changes-action",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Extract changes from keep a changelog for some version",
   "main": "dist/index.js",
   "scripts": {

@@ -1,11 +1,12 @@
 {
   "name": "extract-changes-action",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Extract changes from keep a changelog for some version",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint .",
     "prepare": "ncc build lib/index.js -o dist --minify",
+    "build": "npx @vercel/ncc build && npx convert-action",
     "test": "jest",
     "all": "npm run lint && npm run prepare && npm run test"
   },

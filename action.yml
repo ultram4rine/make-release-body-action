@@ -1,24 +1,23 @@
-# action.yml
-name: "Extract changes"
+name: Extract changes
 author: ultram4rine
-description: "Extract changes from keep a changelog for some version"
+description: Extract changes from keep a changelog for some version
 inputs:
   changelog:
-    description: "Name of the changelog file"
+    description: Name of the changelog file
     required: true
-    default: "CHANGELOG.md"
+    default: CHANGELOG.md
   version:
-    description: "Version for which you want to extract the changes"
+    description: Version for which you want to extract the changes
     required: true
   output:
-    description: "Name of the output file"
+    description: Name of the output file
     required: false
 outputs:
   changes:
-    description: "Changes of the specified version"
+    description: Changes of the specified version
 runs:
-  using: "node16"
-  main: "dist/index.js"
+  using: node16
+  main: dist/index.js
 branding:
-  icon: "clock"
-  color: "orange"
+  icon: clock
+  color: orange

@@ -37,21 +37,21 @@ Changes of the specified version.
 ```yaml
 steps:
   - name: Checkout
-    uses: actions/checkout@v3
+    uses: actions/checkout@v4
 
   - name: Get the version
     id: get_version
-    run: echo ::set-output name=VERSION::$(jq -r .version package.json)
+    run: echo VERSION=$(jq -r .version package.json) >> $GITHUB_OUTPUT
 
-  - name: Create release body file
+  - name: Create release body
+    id: extract_changes
     uses: ultram4rine/extract-changes-action@v2
     with:
       changelog: CHANGELOG.md
       version: ${{ steps.get_version.outputs.VERSION }}
-      output: changes.txt
 
   - name: Create release
     uses: softprops/action-gh-release@v2
     with:
-      body_path: changes.txt
+      body: ${{ steps.extract_changes.outputs.changes }}
 ```

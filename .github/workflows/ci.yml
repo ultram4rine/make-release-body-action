@@ -58,7 +58,7 @@ jobs:
         uses: ./
         with:
           changelog: ./__tests__/changelog
-          versin: 1.0.0
+          version: 1.0.0
 
       - name: Print Output
         id: output

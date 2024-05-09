@@ -59,7 +59,8 @@ jobs:
         with:
           changelog: ./__tests__/changelog
           version: 1.0.0
+          output: ./__tests__/changes.txt
 
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.changes }}"
+        run: echo ./__tests__/changes.txt

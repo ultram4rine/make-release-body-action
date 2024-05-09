@@ -1,6 +1,7 @@
 name: Extract changes
-author: ultram4rine
 description: Extract changes from keep a changelog for some version
+author: ultram4rine
+
 inputs:
   changelog:
     description: Name of the changelog file
@@ -12,12 +13,15 @@ inputs:
   output:
     description: Name of the output file
     required: false
+
 outputs:
   changes:
     description: Changes of the specified version
+
 runs:
-  using: node16
+  using: node20
   main: dist/index.js
+
 branding:
   icon: clock
   color: orange
